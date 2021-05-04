@@ -1,16 +1,13 @@
 const server = require("express").Router();
 const {
-  getAllProducts
-  
+  addProducts,
+  getProducts
 } = require("../controllers/productController");
 
 // ------------------- ROUTE PRODUCTS ------------------
 
-//Get --> Mostrar todos los productos
-server.get("/", getAllProducts);
-
-
-
+server.post('/', addProducts);
+server.get('/', getProducts)
 
 
 
