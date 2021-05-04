@@ -3,10 +3,13 @@ const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
 const morgan = require("morgan");
 const cors = require("cors");
-const routes = require("./routes/index.js");
 
 require("dotenv").config();
+require('./db.js');
 const server = express();
+const routes = require("./routes/index.js");
+
+
 
 server.use(bodyParser.urlencoded({ extended: true, limit: "50mb" }));
 server.use(bodyParser.json({ limit: "50mb" }));
@@ -37,5 +40,12 @@ server.use((err, req, res, next) => {
   console.error(err);
   res.status(status).send(message);
 });
+
+
+
+
+
+
+
 
 module.exports = server;
