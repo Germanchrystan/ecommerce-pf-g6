@@ -5,6 +5,7 @@ const addCategories = async (req, res) => {
   const { name, description} = req.body;
   console.log(req.body)
 
+  
   if (!req.body ) {
     res.status(403).end();
   }
