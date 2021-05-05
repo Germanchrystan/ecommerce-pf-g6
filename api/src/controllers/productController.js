@@ -1,8 +1,6 @@
-// const { Product, Category } = require("../../db.js"); MODELOS DB
 const Product = require('./../models/Product');
 
  
-
 const addProducts = async (req, res) => {
   const { name } = req.body;
   console.log(req.body)
