@@ -2,9 +2,16 @@ const mongoose = require('mongoose');
 const fs = require('fs');
 const path = require('path');
 
+const MONGODB_URI= 'mongodb+srv://mongo:mongoose@cluster0.58swq.mongodb.net/ecommercedb?retryWrites=true&w=majority';
 
-mongoose.connect('mongodb://localhost/ecommercedb', {useNewUrlParser: true, useUnifiedTopology: true})
-.then(() => console.log('MongoDB Connected...'))
+
+mongoose.connect(MONGODB_URI, {
+  useNewUrlParser: true,
+   useUnifiedTopology: true,
+   useFindAndModify: false,
+   useCreateIndex: true
+  })
+.then(() => console.log('MongoDB Connected to')) //, db.connection.host
 .catch((err) => console.log(err))
 
 

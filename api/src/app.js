@@ -28,6 +28,8 @@ server.use((req, res, next) => {
 
 // Initialize routes
 
+
+
 server.use("/", routes);
 
 server.use(cors({ origin: process.env.REACT_APP_API_URL, credentials: true }));
