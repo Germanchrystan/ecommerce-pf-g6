@@ -6,14 +6,18 @@ const asyncHandler = require('express-async-handler');
 // @route   POST /localhost:3001/categories
 // @access  Private/Admin
 const addCategories = asyncHandler(async (req, res) => {
-  const { name, description} = req.body;
-  
+  const { name, description } = req.body;
+
   if (!req.body ) {
     res.status(403).end();
   }
-  const newCategory = new Category(req.body);
-  console.log(newCategory)
+  const newCategory = new Category({
+    name: name,
+    description: description
+   
+  })
   
+
   await newCategory.save((err, saved) => {
     if (err) {
       res.status(500).send(err);
@@ -21,6 +25,7 @@ const addCategories = asyncHandler(async (req, res) => {
     res.json({ category: saved });
   });
 })
+
 
 
 // @desc    Get all categories with pagination
@@ -61,7 +66,7 @@ const updateCategory = asyncHandler(async (req, res) => {
   if (category) {
     category.name = name
     category.description = description
-    const updatedCategory = await Category.save()
+    const updatedCategory = await category.save()
     res.json(updatedCategory)
   } else {
     res.status(404)
