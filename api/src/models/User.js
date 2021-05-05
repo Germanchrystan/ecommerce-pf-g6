@@ -12,7 +12,7 @@ const userSchema = new Schema({
         required:true
     },
     email:{
-        type: '^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$',
+        type: 'String', //'^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$'
         required: true
     },
     name:{
